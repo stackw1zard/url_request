@@ -6,7 +6,7 @@ import java.util.ArrayList;
     The numOfTimesAnsweredCorrectly will be used to sort, so as those answered correctly are less frequently asked
     As the question used, were collected using web scrapping, most of them do not have hints
  */
-public class Question {
+public class TestQuestion {
     private String index = null;
     private String question_text;
     private String answer;

@@ -18,16 +18,15 @@ public class MainActivity extends AppCompatActivity {
         UrlRequest request = new UrlRequest(getApplicationContext());
 //          Type collectionType = TypeToken.getParameterized(List.class, myType).getType();
 
-        JsonObjectParser parser = new JsonObjectParser(Question.class);
+//        JsonObjectParser parser = new JsonObjectParser(Question.class);
 
 //        parser.fromJSonList("",Question.class);
-        String str = "{\"question_text\": \"1) Android is licensed under which open source licensing license?\", \"answer_options\": [\"A. Gnu\\u2019s GPL\", \"B. Apache/MIT\", \"C. OSS\", \"D. Sourceforge\"], \"answer\": \"Ans: B\"}";
 
 //        List<Question> myTypes = parser.fromJSonList(str, Question.class);
 
 //        Log.i("PARSER", myTypes.get(0).getQuestion_text() );
 
-        request.jsonParseURL("http://www.stackwizards.org/json/test5.json", parser);
+//        request.jsonParseURL("http://www.stackwizards.org/json/test5.json", parser);
 
     }
 }

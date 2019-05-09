@@ -1,7 +1,6 @@
 package com.stackwizards.custom.jsonqeue;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,7 +41,6 @@ public class UrlRequest {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-//                        Log.i("XXXXXZZ", response.toString());
 //                        System.out.println(response.toString());
 //                        handler.fromJSonList(response.toString());
                         requestHandler.processString(response.toString());
@@ -78,6 +76,7 @@ public class UrlRequest {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+                requestHandler.requestWentWrong(error.toString());
             }
         });
 

@@ -9,9 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -23,7 +20,7 @@ public class ExampleInstrumentedTest implements ObjectHandler {
 
     @Override
     public <T> List<T> getObjectList(List<T> objs) {
-        List<Question> myTypes = (List<Question>) objs;
+        List<TestQuestion> myTypes = (List<TestQuestion>) objs;
         Log.i("ABC", myTypes.get(0).getQuestion_text());
         return null;
     }
@@ -36,7 +33,7 @@ public class ExampleInstrumentedTest implements ObjectHandler {
 
         UrlRequest request = new UrlRequest(appContext);
 
-        JsonObjectParser parser = new JsonObjectParser(Question.class,this);
+        JsonObjectParser parser = new JsonObjectParser(TestQuestion.class,this);
 
         request.jsonParseURL("http://www.stackwizards.org/json/test5.json",parser);
 

@@ -1,5 +1,7 @@
 package com.stackwizards.custom.jsonqeue;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -48,6 +50,16 @@ public class JsonObjectParser implements RequestHandler {
     @Override
     public void processString(String jsonString) {
            handler.getObjectList(fromJSonList(jsonString)) ;
+    }
+
+    /**
+     *  Message got back if volley url request went wrong
+     * @param errorMsg
+     */
+    @Override
+    public void requestWentWrong(String errorMsg) {
+        Log.i("JSON_QEUE", errorMsg);
+        System.out.println(errorMsg);
     }
 
 

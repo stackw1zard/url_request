@@ -10,4 +10,6 @@ public interface RequestHandler {
 
     public void processString(String jsonString);
 
+    public void requestWentWrong(String errorMsg);
+
 }
