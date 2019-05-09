@@ -12,15 +12,29 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 
+/**
+ * The type Url request.
+ */
 public class UrlRequest {
 
     private RequestQueue mQueue;
 
+    /**
+     * Instantiates a new Url request.
+     *
+     * @param context the context
+     */
     public UrlRequest(Context context) {
         mQueue = Volley.newRequestQueue(context);
     }
 
-    public void jsonParseURL(final String url, final RequestHandler handler) {
+    /**
+     * Json parse url.
+     *
+     * @param url            the url
+     * @param requestHandler the request handler
+     */
+    public void jsonParseURL(final String url, final RequestHandler requestHandler) {
 //        insertPoint.setVisibility(View.GONE);
 //        final String[] result = {""};
 
@@ -30,7 +44,8 @@ public class UrlRequest {
                     public void onResponse(JSONArray response) {
 //                        Log.i("XXXXXZZ", response.toString());
 //                        System.out.println(response.toString());
-                        handler.fromJSonList(response.toString());
+//                        handler.fromJSonList(response.toString());
+                        requestHandler.processString(response.toString());
 //                    handler.parseJsonArray(response.toString(), handler);
 //                        result[0] = response.toString();
 //                        Gson gson = new Gson();

@@ -19,25 +19,13 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
+public class ExampleInstrumentedTest implements ObjectHandler {
 
-    class TestParser implements RequestHandler{
-        String result;
-
-        @Override
-        public <T> List<T> fromJSonList(String json) {
-            System.out.println(json);
-            Log.i("XXXXXX", json);
-
-
-            result = json;
-            return null;
-        }
-    }
-
-    class ABC {
-        public String strA;
-        public String strB;
+    @Override
+    public <T> List<T> getObjectList(List<T> objs) {
+        List<Question> myTypes = (List<Question>) objs;
+        Log.i("ABC", myTypes.get(0).getQuestion_text());
+        return null;
     }
 
 
@@ -48,17 +36,9 @@ public class ExampleInstrumentedTest {
 
         UrlRequest request = new UrlRequest(appContext);
 
-        TestParser parser = new TestParser();
+        JsonObjectParser parser = new JsonObjectParser(Question.class,this);
 
         request.jsonParseURL("http://www.stackwizards.org/json/test5.json",parser);
 
-        try {
-            TimeUnit.SECONDS.sleep(6);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Log.i("AAAA", parser.result);
-
-//        assertEquals("com.stackwizards.custom.jsonqeue.test", appContext.getPackageName());
     }
 }
